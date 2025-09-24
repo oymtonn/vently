@@ -4,7 +4,7 @@ Submitted by: **Myo Aung**
 
 About this web app: **Upload and discover all kinds of events near you!**
 
-Time spent: **6** hours
+Time spent: **4** hours
 
 ## Required Features
 
