@@ -34,7 +34,7 @@ Here's a walkthrough of implemented required features:
 
 NOTE: GIF is really slow for some reason, sorry!
 
-<img src='eventwalk.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='4B91D9S7.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with IMGUR  Add GIF tool here
