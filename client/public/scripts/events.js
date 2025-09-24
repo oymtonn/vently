@@ -79,10 +79,25 @@ const renderEvent = async () => {
     }
 }
 
-if (document.getElementById('main-content')) {
-    renderEvents()
-}
+const pathname = window.location.pathname;
 
-if (document.getElementById('gift-content')) {
-    renderEvent()
+const validPages = ['/', '/index.html', '/event.html'];
+
+if (!validPages.includes(pathname)) {
+    window.location.href = '/404.html';
+} else {
+    if (pathname === '/' || pathname === '/index.html') {
+        renderEvents();
+    }
+
+    if (pathname === '/event.html') {
+        const params = new URLSearchParams(window.location.search);
+        const requestedID = parseInt(params.get('id'));
+
+        if (!requestedID) {
+            window.location.href = '/404.html';
+        } else {
+            renderEvent();
+        }
+    }
 }
