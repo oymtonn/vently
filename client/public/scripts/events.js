@@ -3,6 +3,7 @@ const renderEvents = async () => {
     const data = await response.json()
 
     const mainContent = document.getElementById('main-content')
+    if (!mainContent) return
 
     if (data) {
         data.map(event => {
@@ -32,7 +33,7 @@ const renderEvents = async () => {
             const link = document.createElement('a')
             link.textContent = 'Read More >'
             link.setAttribute('role', 'button')
-            link.href = `/events/${event.id}`
+            link.href = `/event.html?id=${event.id}`
             bottomContainer.appendChild(link)
 
             card.appendChild(topContainer)
@@ -48,4 +49,40 @@ const renderEvents = async () => {
     }
 }
 
-renderEvents()
+const renderEvent = async () => {
+    const params = new URLSearchParams(window.location.search)
+    const requestedID = parseInt(params.get('id'))
+
+    const response = await fetch('http://localhost:3001/events')
+    const data = await response.json()
+
+    const eventContent = document.getElementById('gift-content')
+    if (!eventContent) return
+
+    let event
+    event = data.find(event => event.id === requestedID)
+
+    if (event) {
+        document.getElementById('image').src = event.image
+        document.getElementById('name').textContent = event.name
+        document.getElementById('submittedBy').textContent = 'Submitted by: ' + event.submittedBy
+        document.getElementById('pricePoint').textContent = 'Price: ' + event.pricePoint
+        document.getElementById('audience').textContent = 'Great For: ' + event.audience
+        document.getElementById('description').textContent = event.description
+        document.title = `Vently - ${event.name}`
+      
+    }
+    else {
+        const message = document.createElement('h2')
+        message.textContent = 'No Gifts Available 😞'
+        eventContent.appendChild(message)
+    }
+}
+
+if (document.getElementById('main-content')) {
+    renderEvents()
+}
+
+if (document.getElementById('gift-content')) {
+    renderEvent()
+}
