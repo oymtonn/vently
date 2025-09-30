@@ -65,8 +65,8 @@ const renderEvent = async () => {
     if (event) {
         document.getElementById('image').src = event.image
         document.getElementById('name').textContent = event.name
-        document.getElementById('submittedBy').textContent = 'Submitted by: ' + event.submittedBy
-        document.getElementById('pricePoint').textContent = 'Price: ' + event.pricePoint
+        document.getElementById('submittedBy').textContent = 'Submitted by: ' + event.submittedby
+        document.getElementById('pricePoint').textContent = 'Price: ' + event.pricepoint
         document.getElementById('audience').textContent = 'Great For: ' + event.audience
         document.getElementById('description').textContent = event.description
         document.title = `Vently - ${event.name}`
