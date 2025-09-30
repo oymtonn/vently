@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import eventsRouter from './routes/events.js'
+import "./config/dotenv.js"
 
 const app = express()
 
